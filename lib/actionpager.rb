@@ -1,5 +1,4 @@
-require "actionpager/version"
+# frozen_string_literal: true
 
-module Actionpager
-  # Your code goes here...
-end
+require "action_pager/version"
+require "action_pager/pager"
