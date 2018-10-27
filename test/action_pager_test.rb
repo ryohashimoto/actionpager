@@ -20,6 +20,12 @@ class ActionPagerTest < Minitest::Test
     assert_equal 128, pager.collection_count
   end
 
+  def test_first_page
+    collection = (1..128).to_a
+    pager = ActionPager::Pager.new(collection, page: 3, per: 10)
+    assert_equal 1, pager.first_page
+  end
+
   def test_first_page?
     collection = (1..128).to_a
     pager = ActionPager::Pager.new(collection, page: 3, per: 10)
@@ -36,5 +42,17 @@ class ActionPagerTest < Minitest::Test
     collection = (1..128).to_a
     pager = ActionPager::Pager.new(collection, page: 3, per: 10)
     assert_equal false, pager.last_page?
+  end
+
+  def test_prev_page
+    collection = (1..128).to_a
+    pager = ActionPager::Pager.new(collection, page: 3, per: 10)
+    assert_equal 2, pager.prev_page
+  end
+
+  def test_next_page
+    collection = (1..128).to_a
+    pager = ActionPager::Pager.new(collection, page: 3, per: 10)
+    assert_equal 4, pager.next_page
   end
 end

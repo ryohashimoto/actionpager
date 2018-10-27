@@ -30,6 +30,10 @@ module ActionPager
       @_collection_count ||= collection.count
     end
 
+    def first_page
+      1
+    end
+
     def first_page?
       current_page == 1
     end
@@ -40,6 +44,16 @@ module ActionPager
 
     def last_page?
       current_page == last_page
+    end
+
+    def prev_page
+      page = current_page - 1
+      page >= 1 ? page : nil
+    end
+
+    def next_page
+      page = current_page + 1
+      page <= last_page ? page : nil
     end
   end
 end
