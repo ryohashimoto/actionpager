@@ -14,7 +14,7 @@ module ActionPager
       @collection = collection
     end
 
-    def paginate
+    def scoped
       if collection.is_a?(Array)
         collection.drop(offset).first(per_page)
       else # for ActiveRecord::Relation and other OR mapper collections

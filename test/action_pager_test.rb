@@ -2,10 +2,10 @@ require_relative "./test_helper.rb"
 require "ostruct"
 
 class ActionPagerTest < Minitest::Test
-  def test_paginate
+  def test_scoped
     collection = (1..128).to_a
     pager = ActionPager::Pager.new(collection, page: 3, per: 10)
-    assert_equal (21..30).to_a, pager.paginate
+    assert_equal (21..30).to_a, pager.scoped
   end
 
   def test_offset
