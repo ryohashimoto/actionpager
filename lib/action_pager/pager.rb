@@ -15,6 +15,11 @@ module ActionPager
     end
 
     def scoped
+      warn "[DEPRECATION] `scoped` is deprecated.  Please use `current_collection` instead."
+      current_collection
+    end
+
+    def current_collection
       if collection.is_a?(Array)
         collection.drop(offset).first(per_page)
       else # for ActiveRecord::Relation and other OR mapper collections
