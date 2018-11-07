@@ -46,6 +46,7 @@ module ActionPager
     def last_page
       @last_page ||= collection_count / per_page + 1
     end
+    alias_method :total_pages, :last_page
 
     def last_page?
       current_page == last_page
