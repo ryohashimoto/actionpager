@@ -83,5 +83,15 @@ module ActionPager
         end
       end
     end
+
+    # show bottom (left) gap mark in pager?
+    def bottom_gap?
+      near_pages.first > 1
+    end
+
+    # show upper (right) gap mark in pager?
+    def upper_gap?
+      near_pages.last < last_page
+    end
   end
 end
