@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    actionpager (0.0.2)
+    actionpager (0.0.3)
 
 GEM
   remote: https://rubygems.org/
@@ -19,4 +19,4 @@ DEPENDENCIES
   rake (~> 10.0)
 
 BUNDLED WITH
-   1.16.6
+   1.17.1
