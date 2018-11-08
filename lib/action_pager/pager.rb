@@ -20,7 +20,8 @@ module ActionPager
       current_collection
     end
 
-    def current_collection
+    def collection_at(page)
+      offset = offset_at(page)
       if collection.is_a?(Array)
         collection.drop(offset).first(per_page)
       else # for ActiveRecord::Relation and other OR mapper collections
@@ -28,8 +29,48 @@ module ActionPager
       end
     end
 
-    def offset
-      (current_page - 1) * per_page
+    def current_collection
+      collection_at(current_page)
+    end
+
+    def first_collection
+      collection_at(first_page)
+    end
+
+    def last_collection
+      collection_at(last_page)
+    end
+
+    def prev_collection
+      collection_at(prev_page)
+    end
+
+    def next_collection
+      collection_at(next_page)
+    end
+
+    def offset_at(page)
+      (page - 1) * per_page
+    end
+
+    def current_offset
+      offset_at(current_page)
+    end
+
+    def first_offset
+      offset_at(first_page)
+    end
+
+    def last_offset
+      offset_at(last_page)
+    end
+
+    def prev_offset
+      offset_at(prev_page)
+    end
+
+    def next_offset
+      offset_at(next_page)
     end
 
     def collection_count

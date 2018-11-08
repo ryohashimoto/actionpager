@@ -9,10 +9,58 @@ class ActionPagerTest < Minitest::Test
     assert_equal (21..30).to_a, pager.current_collection
   end
 
-  def test_offset
+  def text_first_collection
     collection = (1..128).to_a
     pager = ActionPager::Pager.new(collection, page: 3, per: 10)
-    assert_equal 20, pager.offset
+    assert_equal (1..10).to_a, pager.first_collection
+  end
+
+  def text_last_collection
+    collection = (1..128).to_a
+    pager = ActionPager::Pager.new(collection, page: 3, per: 10)
+    assert_equal (121..128).to_a, pager.last_collection
+  end
+
+  def text_prev_collection
+    collection = (1..128).to_a
+    pager = ActionPager::Pager.new(collection, page: 3, per: 10)
+    assert_equal (11..20).to_a, pager.prev_collection
+  end
+
+  def text_next_collection
+    collection = (1..128).to_a
+    pager = ActionPager::Pager.new(collection, page: 3, per: 10)
+    assert_equal (31..40).to_a, pager.next_collection
+  end
+
+  def test_current_offset
+    collection = (1..128).to_a
+    pager = ActionPager::Pager.new(collection, page: 3, per: 10)
+    assert_equal 20, pager.current_offset
+  end
+
+  def test_first_offset
+    collection = (1..128).to_a
+    pager = ActionPager::Pager.new(collection, page: 3, per: 10)
+    assert_equal 0, pager.first_offset
+  end
+
+  def test_last_offset
+    collection = (1..128).to_a
+    pager = ActionPager::Pager.new(collection, page: 3, per: 10)
+    assert_equal 120, pager.last_offset
+  end
+
+  def test_prev_offset
+    collection = (1..128).to_a
+    pager = ActionPager::Pager.new(collection, page: 3, per: 10)
+    assert_equal 10, pager.prev_offset
+  end
+
+  def test_next_offset
+    collection = (1..128).to_a
+    pager = ActionPager::Pager.new(collection, page: 3, per: 10)
+    assert_equal 30, pager.next_offset
   end
 
   def test_collection_count
