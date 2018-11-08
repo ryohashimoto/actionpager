@@ -1,0 +1,37 @@
+<ul class="pagination">
+  <% unless pager.first_page? -%>
+    <li>
+      <%= link_to url_for_page(page: pager.first_page) do %>
+        &laquo;
+      <% end -%>
+    </li>
+    <li>
+      <%= link_to url_for_page(page: pager.prev_page), rel: "prev" do %>
+        &lsaquo;
+      <% end -%>
+    </li>
+  <% end -%>
+  <% (1..(pager.last_page)).to_a.each do |page| -%>
+    <% if pager.current_page == page -%>
+      <li class="active">
+        <%= link_to page, url_for_page(page: page) -%>
+      </li>
+    <% else -%>
+      <li>
+        <%= link_to page, url_for_page(page: page) -%>
+      </li>
+    <% end -%>
+  <% end -%>
+  <% unless pager.last_page? -%>
+    <li>
+      <%= link_to url_for_page(page: pager.next_page), rel: "next" do -%>
+        &rsaquo;
+      <% end -%>
+    </li>
+    <li>
+      <%= link_to url_for_page(page: pager.last_page) do -%>
+        &raquo;
+      <% end -%>
+    </li>
+  <% end -%>
+</ul>
