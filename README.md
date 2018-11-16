@@ -55,6 +55,13 @@ resources = Book.recent_published
 @books = pager.current_collection
 ```
 
+To show the pager in your Rails app's view, add code like below:
+
+```erb
+<%= render_pager @pager %>
+```
+
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

@@ -27,6 +27,15 @@ gem "actionpager"
 
     $ gem install actionpager
 
+Railsで使用するには以下のコマンドを実行します
+
+    $ rails g action_pager:install
+
+2つのファイルが生成され、カスタマイズすることができます。
+
+- `app/helpers/action_pager/pagination_helper.rb`
+- `app/views/action_pager/_pager.html.erb`
+
 ## 使い方
 
 シンプルな配列で使う場合
@@ -45,6 +54,14 @@ resources = Book.recent_published
 @pager = ActionPager::Pager.new(resources, page: 2, per: 25)
 @books = pager.current_collection
 ```
+
+Railsのビューでページャーを表示するには、以下のようにコードを記述します。
+
+```erb
+<%= render_pager @pager %>
+```
+
+
 
 ## License
 
