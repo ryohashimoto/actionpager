@@ -1,8 +1,7 @@
 require_relative "./test_helper.rb"
 require "ostruct"
-require "pry"
 
-class ActionPagerTest < Minitest::Test
+class PagerTest < Minitest::Test
   def test_current_collection
     collection = (1..128).to_a
     pager = ActionPager::Pager.new(collection, page: 3, per: 10)

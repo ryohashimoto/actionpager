@@ -2,3 +2,4 @@
 
 require "action_pager/version"
 require "action_pager/pager"
+require "action_pager/pagination"
