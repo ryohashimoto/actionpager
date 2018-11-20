@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    actionpager (0.0.3)
+    actionpager (0.0.6)
 
 GEM
   remote: https://rubygems.org/
