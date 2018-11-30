@@ -1,37 +1,39 @@
-<ul class="pagination">
-  <% unless pager.first_page? -%>
-    <li>
-      <%= link_to url_for_page(page: pager.first_page) do %>
-        &laquo;
-      <% end -%>
-    </li>
-    <li>
-      <%= link_to url_for_page(page: pager.prev_page), rel: "prev" do %>
-        &lsaquo;
-      <% end -%>
-    </li>
-  <% end -%>
-  <% (1..(pager.last_page)).to_a.each do |page| -%>
-    <% if pager.current_page == page -%>
-      <li class="active">
-        <%= link_to page, url_for_page(page: page) -%>
+<nav>
+  <ul class="pagination">
+    <% unless pager.first_page? -%>
+      <li class="page-item">
+        <%= link_to url_for_page(page: pager.first_page), class: "page-link" do %>
+          &laquo;
+        <% end -%>
       </li>
-    <% else -%>
-      <li>
-        <%= link_to page, url_for_page(page: page) -%>
+      <li class="page-item">
+        <%= link_to url_for_page(page: pager.prev_page), class: "page-link", rel: "prev" do %>
+          &lsaquo;
+        <% end -%>
       </li>
     <% end -%>
-  <% end -%>
-  <% unless pager.last_page? -%>
-    <li>
-      <%= link_to url_for_page(page: pager.next_page), rel: "next" do -%>
-        &rsaquo;
+    <% pager.near_pages.each do |page| -%>
+      <% if pager.current_page == page -%>
+        <li class="page-item active">
+          <%= link_to page, url_for_page(page: page), class: "page-link" -%>
+        </li>
+      <% else -%>
+        <li class="page-item">
+          <%= link_to page, url_for_page(page: page), class: "page-link" -%>
+        </li>
       <% end -%>
-    </li>
-    <li>
-      <%= link_to url_for_page(page: pager.last_page) do -%>
-        &raquo;
-      <% end -%>
-    </li>
-  <% end -%>
-</ul>
+    <% end -%>
+    <% unless pager.last_page? -%>
+      <li class="page-item">
+        <%= link_to url_for_page(page: pager.next_page), rel: "next", class: "page-link" do -%>
+          &rsaquo;
+        <% end -%>
+      </li>
+      <li class="page-item">
+        <%= link_to url_for_page(page: pager.last_page), class: "page-link" do -%>
+          &raquo;
+        <% end -%>
+      </li>
+    <% end -%>
+  </ul>
+</nav>
