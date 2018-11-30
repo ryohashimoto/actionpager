@@ -36,6 +36,9 @@ Railsで使用するには以下のコマンドを実行します
 - `app/helpers/action_pager/pagination_helper.rb`
 - `app/views/action_pager/_pager.html.erb`
 
+標準では、Bootstrap 4のページネーションのスタイルを使用しています。
+必要であれば、生成されたファイルをカスタマイズしてください。
+
 ## 使い方
 
 シンプルな配列で使う場合
@@ -60,8 +63,6 @@ Railsのビューでページャーを表示するには、以下のようにコ
 ```erb
 <%= render_pager @pager %>
 ```
-
-
 
 ## License
 

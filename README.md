@@ -36,6 +36,9 @@ It generates two files and you can customize.
 - `app/helpers/action_pager/pagination_helper.rb`
 - `app/views/action_pager/_pager.html.erb`
 
+By default, it uses Bootstrap 4 pagination for styles.
+If you need, you can easily customize the generated file.
+
 ## Usage
 
 Use with a simple array:
