@@ -1,11 +1,13 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "action_pager/version"
+version = File.read(File.expand_path("VERSION", __dir__)).strip
+date = File.read(File.expand_path("RELEASE_DATE", __dir__)).strip
 
 Gem::Specification.new do |spec|
   spec.name          = "actionpager"
-  spec.version       = ActionPager::VERSION
+  spec.version       = version
+  spec.date          = date
   spec.authors       = ["Ryo Hashimoto"]
   spec.email         = ["ryohashimoto@gmail.com"]
 
