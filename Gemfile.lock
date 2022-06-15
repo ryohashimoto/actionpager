@@ -20,7 +20,7 @@ GEM
     concurrent-ruby (1.1.9)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
-    minitest (5.14.4)
+    minitest (5.16.0)
     rake (13.0.6)
     sqlite3 (1.4.2)
     tzinfo (2.0.4)
